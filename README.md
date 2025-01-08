@@ -1,5 +1,5 @@
 # SPCart
-by ������ �ҵ���ش
+by naritsara Maritsud
 673450037-2,
 Computer and Infomation Science, KKU
 
@@ -8,15 +8,15 @@ Computer and Infomation Science, KKU
         {
         
             if (chbCoffee.Checked) { }
-            // ��ҹ���tb  Coffee
+            // ÍèÒ¹¤èÒtb  Coffee
             string strCoffeePrice = tbCoffeePrice.Text;
             string strCoffeeQuantity = tbCoffeeQuantity.Text;
 
-            // ��ҹ���tb Greentea
+            // ÍèÒ¹¤èÒtb Greentea
             string strGreenTeaPrice = tbGreenTeaPrice.Text;
             string strGreenTeaQuantity = tbGreenTeaQuantity.Text;
 
-            // ��ҹ��� Cash
+            // ÍèÒ¹¤èÒ Cash
             string strCash = tbCash.Text;
 
             int iCoffeePrice = 0;
@@ -29,29 +29,29 @@ Computer and Infomation Science, KKU
 
             try
             {
-                // ��Ǩ������� checkboxCoffee �����
+                // µÃÇ¨ÇèÒä´éµÔé¡ checkboxCoffee ÁÑÐéÂ
                 if (chbCoffee.Checked)
                 {
-                    // �ŧ��Ҩҡ string ໹ int
+                    // á»Å§¤èÒ¨Ò¡ string à»¹ int
                     iCoffeePrice = int.Parse(strCoffeePrice);
                     iCoffeeQuantity = int.Parse(strCoffeeQuantity);
                 }
 
-                // ��Ǩ�ͺ checkboxGreen Tea
+                // µÃÇ¨ÊÍº checkboxGreen Tea
                 if (chbGreenTea.Checked)
                 {
                     iGreenTeaPrice = int.Parse(strGreenTeaPrice);
                     iGreenTeaQuantity = int.Parse(strGreenTeaQuantity);
                 }
 
-                //��ҹ��� Cash
+                //ÍèÒ¹¤èÒ Cash
                 iCash = int.Parse(strCash);
 
             }
 
             catch (Exception ex)
             {
-                // �ŧ��ҼԴ��Ҵ  ��໹0
+                // á»Å§¤èÒ¼Ô´¾ÅÒ´  ¨Ðà»¹0
                 iCoffeePrice = 0;
                 iCoffeeQuantity = 0;
                 iGreenTeaPrice = 0;
@@ -59,24 +59,24 @@ Computer and Infomation Science, KKU
                 iCash = 0;
             }
 
-            //�ӹǹ �ʹ����
+            //¤Ó¹Ç¹ ÂÍ´ÃÍÁÁ
             iTotal = (iCoffeePrice * iCoffeeQuantity) + (iGreenTeaPrice * iGreenTeaQuantity);
 
-            //�ӹǹ�Թ�͹
+            //¤Ó¹Ç¹à§Ô¹·Í¹
             iChange = iCash - iTotal;
 
-            //�ʴ��ʹ���  �Թ�͹ � TextBox
+            //áÊ´§ÂÍ´ÃÇÁ  à§Ô¹·Í¹ ã¹ TextBox
             tbTotal.Text = iTotal.ToString();
             tbChange.Text = iChange.ToString();
 
-            // ᨡᨧầ���������­ thankyouChatgpt
+            // á¨¡á¨§áº§¤ìáÅÐàËÃÕÂ­ thankyouChatgpt
             int[] denominations = { 1000, 500, 100, 50, 20, 10, 5, 1 };
             TextBox[] denominationTextBoxes = { tb1000, tb500, tb100, tb50, tb20, tb10, tb5, tb1 };
 
             for (int i = 0; i < denominations.Length; i++)
             {
-                int count = iChange / denominations[i]; //�ӹǹ���  ����­
-                iChange %= denominations[i];           //�Թ��������
+                int count = iChange / denominations[i]; //¨Ó¹Ç¹áºé§ãº  àËÃÕÂ­
+                iChange %= denominations[i];           //à§Ô¹·ÕèàËÅ×Í
                 denominationTextBoxes[i].Text = count.ToString();
             }
         }
